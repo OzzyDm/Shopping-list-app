@@ -4,7 +4,13 @@ function addItem() {
   const enterItem = document.querySelector("#enterItem").value;
   const ul = document.querySelector("#list");
   const li = document.createElement("li");
-  li.appendChild(document.createTextNode(enterItem));
+  const editButton = document.createElement("button");
+  const deleteButton = document.createElement("button");
+  editButton.setAttribute("class", "edit");
+  deleteButton.setAttribute("class", "delete");
+  editButton.textContent = "Edit";
+  deleteButton.textContent = "Delete";
+  li.append(document.createTextNode(enterItem), editButton, deleteButton);
   ul.appendChild(li);
 }
 
