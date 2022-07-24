@@ -1,4 +1,6 @@
 const addButton = document.querySelector("#add");
+const editButton = document.querySelector(".edit");
+const deleteButton = document.querySelector(".delete");
 
 function addItem() {
   const enterItem = document.querySelector("#enterItem").value;
@@ -6,11 +8,14 @@ function addItem() {
   const li = document.createElement("li");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
+  const input = document.createElement("input");
+  input.setAttribute("disabled", "true");
+  input.value = enterItem;
   editButton.setAttribute("class", "edit");
-  deleteButton.setAttribute("class", "delete");
   editButton.textContent = "Edit";
+  deleteButton.setAttribute("class", "delete");
   deleteButton.textContent = "Delete";
-  li.append(document.createTextNode(enterItem), editButton, deleteButton);
+  li.append(input, editButton, deleteButton);
   ul.appendChild(li);
 }
 
