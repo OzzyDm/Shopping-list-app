@@ -10,6 +10,7 @@ function addItem() {
   const deleteButton = document.createElement("button");
   const input = document.createElement("input");
   input.setAttribute("disabled", "true");
+  input.setAttribute("class", "item");
   input.value = enterItem;
   editButton.setAttribute("class", "edit");
   editButton.textContent = "Edit";
@@ -32,3 +33,10 @@ textbox.addEventListener("keypress", function onEvent(event) {
 function clearTextarea() {
   document.querySelector("#enterItem").value = "";
 }
+
+function editItem() {
+  const input = document.querySelectorAll("input.item");
+  input.setAttribute("disabled", "false");
+}
+
+editButton.addEventListener("click", editItem);
