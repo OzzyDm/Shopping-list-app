@@ -16,3 +16,15 @@ li {
   text-align: left;
   list-style: number;
 }
+
+li button {
+  float: right;
+}
+
+.item {
+  border-color: white;
+  background-color: white;
+  border-top: 0ch;
+  border-left: 0ch;
+  font-size: medium;
+}

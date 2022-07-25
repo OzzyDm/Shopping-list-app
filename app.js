@@ -1,6 +1,4 @@
 const addButton = document.querySelector("#add");
-const editButton = document.querySelector(".edit");
-const deleteButton = document.querySelector(".delete");
 
 function addItem() {
   const enterItem = document.querySelector("#enterItem").value;
@@ -16,11 +14,13 @@ function addItem() {
   editButton.textContent = "Edit";
   deleteButton.setAttribute("class", "delete");
   deleteButton.textContent = "Delete";
-  li.append(input, editButton, deleteButton);
+  li.append(input, deleteButton, editButton);
   ul.appendChild(li);
 }
 
 addButton.addEventListener("click", addItem);
+const editButton = document.querySelector(".edit");
+const deleteButton = document.querySelector(".delete");
 
 const textbox = document.getElementById("enterItem");
 textbox.addEventListener("keypress", function onEvent(event) {
