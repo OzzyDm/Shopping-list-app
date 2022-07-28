@@ -17,14 +17,16 @@ function addItem() {
     deleteButton.textContent = "Delete";
     li.append(input, deleteButton, editButton);
     ul.appendChild(li);
+    const editBtn = document.querySelector(".edit");
+    const deleteBtn = document.querySelector(".delete");
+    editBtn.addEventListener("click", editItem);
+    deleteBtn.addEventListener("click", deleteItem);
   } else {
     alert("List item cannot be empty!");
   }
 }
 
 addButton.addEventListener("click", addItem);
-const editButton = document.querySelector(".edit");
-const deleteButton = document.querySelector(".delete");
 
 const textbox = document.getElementById("enterItem");
 textbox.addEventListener("keypress", function onEvent(event) {
@@ -39,8 +41,12 @@ function clearTextarea() {
 }
 
 function editItem() {
-  const input = document.querySelectorAll("input.item");
-  input.setAttribute("disabled", "false");
+  const inputList = document.querySelectorAll(".item");
+  inputList.forEach((item) => {
+    item.removeAttribute("disabled");
+  });
 }
 
-editButton.addEventListener("click", editItem);
+function deleteItem() {
+  this.parentNode.remove();
+}
