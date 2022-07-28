@@ -5,28 +5,22 @@ function addItem() {
     const enterItem = document.querySelector("#enterItem").value;
     const ul = document.querySelector("#list");
     const li = document.createElement("li");
-    //const editButton = document.createElement("button");
-    //const deleteButton = document.createElement("button");
     const input = document.createElement("input");
     input.setAttribute("disabled", "true");
     input.setAttribute("class", "item");
     input.value = enterItem;
-    //editButton.setAttribute("class", "edit");
-    //editButton.textContent = "Edit";
-    //deleteButton.setAttribute("class", "delete");
-    //deleteButton.textContent = "Delete";
     li.append(input);
     ul.appendChild(li);
     const editBtn = document.querySelector(".edit");
     const deleteBtn = document.querySelector(".delete");
     editBtn.addEventListener("click", editItem);
-    deleteBtn.addEventListener("click", deleteItem);
+    deleteBtn.addEventListener("click", deleteItem, clearTextarea);
   } else {
-    alert("List item cannot be empty!");
+    alert("Cannot be empty!");
   }
 }
 
-addButton.addEventListener("click", addItem);
+addButton.addEventListener("click", addItem, clearTextarea);
 
 const textbox = document.getElementById("enterItem");
 textbox.addEventListener("keypress", function onEvent(event) {
@@ -62,7 +56,9 @@ function deleteItem() {
     item.remove();
   });
   const saveBtn = document.querySelector(".save");
-  saveBtn.remove();
+  if (saveBtn) {
+    saveBtn.remove();
+  }
 }
 
 function saveItems() {

@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
 .container {
   width: 40%;
   display: flex;
@@ -17,10 +22,6 @@ li {
   list-style: number;
 }
 
-li button {
-  float: right;
-}
-
 .item {
   border-color: white;
   background-color: white;
@@ -28,4 +29,65 @@ li button {
   border-left: 0ch;
   font-size: medium;
   width: 70%;
+}
+
+#add {
+  background-color: #80ed99;
+  border-radius: 1em;
+  font-size: 1em;
+}
+
+#add:hover {
+  background-color: #46c263;
+  color: white;
+}
+
+.edit {
+  background-color: #ffca3a;
+  border-radius: 1em;
+  font-size: 1em;
+}
+
+.edit:hover {
+  background-color: #e1b148;
+  color: white;
+}
+
+.delete {
+  background-color: #dc2f02;
+  border-radius: 1em;
+  font-size: 1em;
+}
+
+.delete:hover {
+  background-color: #c00000;
+  color: white;
+}
+
+.save {
+  background-color: #ffca3a;
+
+  border-radius: 1em;
+  font-size: 1em;
+}
+
+.save:hover {
+  color: white;
+  background-color: #e1b148;
+}
+
+button {
+  margin-top: 3px;
+}
+
+#enterItem {
+  border-radius: 1em;
+  font-size: large;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.error {
+  margin-bottom: 5px;
+  font-size: large;
 }
