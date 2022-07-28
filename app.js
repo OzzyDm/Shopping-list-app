@@ -14,13 +14,15 @@ function addItem() {
     const editBtn = document.querySelector(".edit");
     const deleteBtn = document.querySelector(".delete");
     editBtn.addEventListener("click", editItem);
-    deleteBtn.addEventListener("click", deleteItem, clearTextarea);
+    deleteBtn.addEventListener("click", deleteItem);
+    deleteBtn.addEventListener("click", clearTextarea);
   } else {
     alert("Cannot be empty!");
   }
 }
 
-addButton.addEventListener("click", addItem, clearTextarea);
+addButton.addEventListener("click", addItem);
+addButton.addEventListener("click", clearTextarea);
 
 const textbox = document.getElementById("enterItem");
 textbox.addEventListener("keypress", function onEvent(event) {
