@@ -5,17 +5,17 @@ function addItem() {
     const enterItem = document.querySelector("#enterItem").value;
     const ul = document.querySelector("#list");
     const li = document.createElement("li");
-    const editButton = document.createElement("button");
-    const deleteButton = document.createElement("button");
+    //const editButton = document.createElement("button");
+    //const deleteButton = document.createElement("button");
     const input = document.createElement("input");
     input.setAttribute("disabled", "true");
     input.setAttribute("class", "item");
     input.value = enterItem;
-    editButton.setAttribute("class", "edit");
-    editButton.textContent = "Edit";
-    deleteButton.setAttribute("class", "delete");
-    deleteButton.textContent = "Delete";
-    li.append(input, deleteButton, editButton);
+    //editButton.setAttribute("class", "edit");
+    //editButton.textContent = "Edit";
+    //deleteButton.setAttribute("class", "delete");
+    //deleteButton.textContent = "Delete";
+    li.append(input);
     ul.appendChild(li);
     const editBtn = document.querySelector(".edit");
     const deleteBtn = document.querySelector(".delete");
@@ -45,8 +45,29 @@ function editItem() {
   inputList.forEach((item) => {
     item.removeAttribute("disabled");
   });
+  const saveBtn = document.querySelector(".save");
+  if (!saveBtn) {
+    const saveButton = document.createElement("button");
+    saveButton.setAttribute("class", "save");
+    saveButton.textContent = "Save";
+    const editBtn = document.querySelector(".edit");
+    editBtn.parentNode.insertBefore(saveButton, editBtn.nextSibling);
+    saveButton.addEventListener("click", saveItems);
+  }
 }
 
 function deleteItem() {
-  this.parentNode.remove();
+  const inputList = document.querySelectorAll("li");
+  inputList.forEach((item) => {
+    item.remove();
+  });
+  const saveBtn = document.querySelector(".save");
+  saveBtn.remove();
+}
+
+function saveItems() {
+  const inputList = document.querySelectorAll(".item");
+  inputList.forEach((item) => {
+    item.setAttribute("disabled", "true");
+  });
 }
